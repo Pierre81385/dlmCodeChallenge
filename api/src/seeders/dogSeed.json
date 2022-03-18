@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Franklin",
+    "age": 15,
+    "weight": 30,
+    "color": "salt and pepper",
+    "breed": "westie/corgi"
+  },
+  {
+    "name": "Snoopy",
+    "age": 100,
+    "weight": 50,
+    "color": "black and white",
+    "breed": "mutt"
+  },
+  {
+    "name": "Oliver",
+    "age": 1,
+    "weight": 65,
+    "color": "tan",
+    "breed": "pit mix"
+  },
+  {
+    "name": "Kala",
+    "age": 3,
+    "weight": 40,
+    "color": "brown and white",
+    "breed": "pit mix"
+  },
+  {
+    "name": "LambChop",
+    "age": 20,
+    "weight": 6,
+    "color": "white",
+    "breed": "angel"
+  },
+  {
+    "name": "Timmy",
+    "age": 150,
+    "weight": 5,
+    "color": "green",
+    "breed": "turtle"
+  }
+]
