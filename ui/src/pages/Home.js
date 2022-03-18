@@ -84,9 +84,12 @@ function Home() {
       {allDogs.length === 0 ? (
         <>
           <h1>No dogs!</h1>
+          <Link to={"/new"}>Add a Dog</Link>
         </>
       ) : (
         <>
+          <Link to={"/new"}>Add a Dog</Link>
+
           <div>Meet the dogs:</div>
           <ul>{allDogs.map(renderDogList)}</ul>
         </>

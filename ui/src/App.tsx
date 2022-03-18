@@ -6,6 +6,7 @@ import "./styles/App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "../src/pages/Home";
 import Details from "../src/pages/Details";
+import New from "../src/pages/New";
 
 const App: FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dog/:id" element={<Details />} />
+        <Route path="/new" element={<New />} />
       </Routes>
     </div>
   );

@@ -21,7 +21,7 @@ Here is what we are looking for, and how your submission will be graded.
 ### Landing page shows list of all entities
 
 - [ ] Going to the homepage `/` will provide a list of all the entities.
-  - This can be displayed however you wish, for example a table. Whatever you think is appropriate.
+  - This can be displayed however you wish, for example a table. Whatever you think is appropriate. {{{ DONE }}}
 
 #### Bonus
 
@@ -34,21 +34,20 @@ Here is what we are looking for, and how your submission will be graded.
 
 <!-- Change to no need for Router - be ambiguous -->
 
-- [ ] Clicking on an entity in the list navigates to a more detailed view of that specific entity.
-- [ ] This page should show all the attributes of the entity. 
-- [ ] **There needs to be at least one extra attribute shown on this page that is not shown on the list page.**
-- [ ] Pasting a URL into the browser with the ID of the entity should show the entity detailed view.
-  - For example, localhost:3000/123 would show the details for item `123`. You can make this URL whatever you wish, as long as pasting the URL into a new tab or window loads the correct page.
-- [ ] If the provided ID does not exist, a message should be shown saying as much, with an option to go back to the main list page.
-- [ ] Provide a way to get back to the list page without using the browser controls.
+- [ ] Clicking on an entity in the list navigates to a more detailed view of that specific entity. {{{ DONE }}}
+- [ ] This page should show all the attributes of the entity. {{{ DONE }}}
+- [ ] **There needs to be at least one extra attribute shown on this page that is not shown on the list page.** {{{ DONE}}}
+- [ ] Pasting a URL into the browser with the ID of the entity should show the entity detailed view. {{{ DONE }}}
+  - For example, localhost:3000/123 would show the details for item `123`. You can make this URL whatever you wish, as long as pasting the URL into a new tab or window loads the correct page. {{{ DONE }}}
+- [ ] If the provided ID does not exist, a message should be shown saying as much, with an option to go back to the main list page. {{{ DONE }}}
+- [ ] Provide a way to get back to the list page without using the browser controls.  {{{ DONE }}}
 
 ### Deleting an entity
 
 <!-- User sees list after delete -->
 
-- [ ] Provide the ability to delete an entity.
-- [ ] After deleting an entity, the user is taken to the home, list page, with an updated list reflecting the changes ( the deleted entity **is not** in the list ).
-# {{{ DONE }}}
+- [ ] Provide the ability to delete an entity. {{{ DONE }}}
+- [ ] After deleting an entity, the user is taken to the home, list page, with an updated list reflecting the changes ( the deleted entity **is not** in the list ). {{{ DONE }}}
 
 ### Creating a new entity
 
