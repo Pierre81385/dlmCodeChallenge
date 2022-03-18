@@ -12,6 +12,7 @@ function Details() {
     color: "",
     breed: "",
   });
+  const [errorFound, setErrorFound] = useState(false);
 
   useEffect(() => {
     const doggyDetails = async () => {
@@ -22,18 +23,29 @@ function Details() {
         setDog(data);
       } catch (error) {
         console.log(error);
+        setErrorFound(true);
       }
     };
     doggyDetails();
   }, []);
 
   return (
-    <div>
-      <h3>{dog.name}</h3>
-      <h3>{dog.age}</h3>
-      <h3>{dog.weight}</h3>
-      <h3>{dog.color}</h3>
-      <h3>{dog.breed}</h3>
+    <div id="main">
+      {!errorFound ? (
+        <>
+          <h3>{dog.name}</h3>
+          <h3>{dog.age}</h3>
+          <h3>{dog.weight}</h3>
+          <h3>{dog.color}</h3>
+          <h3>{dog.breed}</h3>
+        </>
+      ) : (
+        <>
+          <h1>Yikes!</h1>
+          <h3>Something went wrong. Check out the console for more details.</h3>
+        </>
+      )}
+
       <Link to={`/`}>BACK</Link>
     </div>
   );

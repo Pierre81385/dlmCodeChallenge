@@ -32,17 +32,15 @@ app.listen(PORT, () => {
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log("Connected to the database!");
   })
-  .catch(err => {
+  .catch((err) => {
     console.log("Oops!  Ya messed up somewhere.", err);
     process.exit();
   });
-
-
 
 /**
  * Test ping, this is used by the UI to determine if they are connected properly.
@@ -98,6 +96,6 @@ app.get("/dog/:id", async (req, res) => {
     const data = await dogData.findById(id);
     res.status(201).json(data);
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).send(`<h1>Lost Doggy!</h1>`);
   }
 });

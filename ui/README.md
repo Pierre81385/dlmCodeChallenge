@@ -48,6 +48,7 @@ Here is what we are looking for, and how your submission will be graded.
 
 - [ ] Provide the ability to delete an entity.
 - [ ] After deleting an entity, the user is taken to the home, list page, with an updated list reflecting the changes ( the deleted entity **is not** in the list ).
+# {{{ DONE }}}
 
 ### Creating a new entity
 
