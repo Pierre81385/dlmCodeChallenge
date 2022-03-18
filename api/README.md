@@ -26,21 +26,29 @@ If you prefer to use Mongo, ElasticSearch, etc, **please feel free to do so. It 
 
 If you decide to use something else, please provide a quick set of instructions for how to run the tool you have chosen.
 
+# {{{ Database choosen is MongoDB }}}
+
 ## Acceptance Criteria
 
 Here is what we are looking for, and how your submission will be graded.
 
 Any reference to `entity` can be replaced with whatever you decide to use, as described above.
 
+# {{{ entity replaced with dog }}}
+
 You may also change the URL path to fit whatever meets your needs. We just want them to make sense. Making a request to `/ba-lalala-bamba`, would be what we are not looking for. Great tune, though.
 
 ### Get an entity
 
-- [ ] A GET request to `/entity/:id` returns the given entity, or a 404 status code if that entity does not exist.
+- [ ] A GET request to `/entity/:id` returns the given entity, or a 404 status code if that entity does not exist. 
+# {{{ DONE }}}
+
 
 ### Creating an Entity
 
 - [ ] A POST request to `/entity` creates a new entity
+# {{{ DONE }}}
+
 
 #### Bonus
 
@@ -51,10 +59,14 @@ You may also change the URL path to fit whatever meets your needs. We just want 
 
 - [ ] A DELETE request to `/entity/:id` deletes the given entity, or a 404 status code if that entity does not exist.
 - [ ] A 200 status code, with a message of 'ok' or something similar is returned upon successful deletion.
+# {{{ DONE }}}
+
 
 ### Search an entity
 
 - [ ] A GET request to `/entity` ( or whatever the plural version of your entity is ) returns a list of entities.
+# {{{ DONE }}}
+
 
 #### Bonus
 

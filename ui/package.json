@@ -2,6 +2,7 @@
   "name": "@dmlab/code-challenge-ui",
   "version": "0.0.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "scripts": {
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
@@ -10,10 +11,12 @@
     "test": "react-scripts test"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^0.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-query": "^3.34.16"
+    "react-query": "^3.34.16",
+    "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",

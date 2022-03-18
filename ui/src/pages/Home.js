@@ -1,5 +1,36 @@
+import React, { useEffect, useState } from "react";
+
 function Home() {
-  return <div>HOME PAGE</div>;
+  const [allDogs, setAllDogs] = useState([{}]);
+
+  useEffect(() => {
+    console.log("Looking for dogs.");
+    const fetchDogs = async () => {
+      try {
+        const res = await fetch("/dogs");
+        const data = await res.json();
+        setAllDogs([...data]);
+        console.log("Found some dogs!");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDogs();
+    console.log(allDogs);
+  }, []);
+
+  const renderDogList = (dog) => {
+    return (
+      <li>
+        <h3>Meet {dog.name}</h3>
+      </li>
+    );
+  };
+  return (
+    <div>
+      <ul>{allDogs.map(renderDogList)}</ul>
+    </div>
+  );
 }
 
 export default Home;
