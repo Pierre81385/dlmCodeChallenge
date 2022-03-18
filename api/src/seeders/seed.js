@@ -1,5 +1,3 @@
-
-
 const mongoose = require("mongoose");
 const dogData = require("../models/dogData");
 const dogSeed = require("./dogSeed.json");
@@ -24,3 +22,5 @@ const seedDB = async () => {
 seedDB().then(() => {
   mongoose.connection.close();
 });
+
+

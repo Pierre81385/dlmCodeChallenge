@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function Home() {
+  //state
   const [allDogs, setAllDogs] = useState([{}]);
+  const [listChange, setListChange] = useState(false);
 
   useEffect(() => {
     console.log("Looking for dogs.");
@@ -15,19 +19,47 @@ function Home() {
         console.log(error);
       }
     };
+
     fetchDogs();
-    console.log(allDogs);
-  }, []);
+
+    if (listChange) {
+      fetchDogs();
+    }
+  }, [listChange]);
 
   const renderDogList = (dog) => {
+    const deleteDog = async () => {
+      try {
+        const res = await fetch(`/dog/${dog._id}`, {
+          mode: "cors",
+          method: "DELETE",
+        });
+        if (!res.ok) throw new Error(res.statusText);
+        const deleteResponse = await res.json();
+        setListChange(true);
+        return deleteResponse;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return (
-      <li>
-        <h3>Meet {dog.name}</h3>
+      <li key={dog._id}>
+        <Link to={`/dog/${dog._id}`}>{dog.name}</Link>
+
+        <Button
+          onClick={() => {
+            deleteDog();
+          }}
+        >
+          Delete
+        </Button>
       </li>
     );
   };
   return (
     <div>
+      <div>Meet the dogs:</div>
       <ul>{allDogs.map(renderDogList)}</ul>
     </div>
   );
