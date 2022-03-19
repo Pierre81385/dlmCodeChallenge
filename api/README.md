@@ -12,21 +12,19 @@ Using `npm run start` with start the server, but will not restart the server whe
 ## Highlights
 
 - You **DO NOT** need to complete this in TypeScript. Everything is setup properly so you can start using JS if you'd prefer.
-  - TypeScript is encouraged, but not required.
-- You can make the data entity whatever you want it to be. Game of Thrones characters, Pokemon, politicians, books, whatever you want to do.
-- The routes can be named whatever you think makes sense. Right now they are called `entity`.
+  - TypeScript is encouraged, but not required. {{{ completed in Javascript }}}
+- You can make the data entity whatever you want it to be. Game of Thrones characters, Pokemon, politicians, books, whatever you want to do. {{{ list of lost dogs }}}
+- The routes can be named whatever you think makes sense. Right now they are called `entity`. {{{ dog/dogs }}}
   - For example, to get an entity, a request is made to `/entity`. You can rename entity to whatever you wish.
   - This is not part of the grading, so don't feel too much pressure here. Have fun, or just leave it as entity if you don't feel like changing it.
 
-## Database
+## Database {{{ Database choosen is MongoDB }}}
 
 We have provided a ready-to-go [SQLite](https://www.sqlite.org/index.html) database, using [Knex](https://knexjs.org/). These are just like SQL, and will work right out the box. If you do not wish to use these, that is perfectly acceptable. We have provided them as a means to save time configuring a data store. 
 
 If you prefer to use Mongo, ElasticSearch, etc, **please feel free to do so. It is NOT REQUIRED that you use what we have provided**. Use whatever you're most comfortable with.
 
 If you decide to use something else, please provide a quick set of instructions for how to run the tool you have chosen.
-
-# {{{ Database choosen is MongoDB }}}
 
 ## Acceptance Criteria
 
