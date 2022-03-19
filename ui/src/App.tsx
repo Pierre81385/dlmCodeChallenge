@@ -1,9 +1,8 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { client } from "./client";
 import "./styles/App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "../src/pages/Home";
 import Details from "../src/pages/Details";
 import New from "../src/pages/New";
