@@ -6,7 +6,7 @@ Not having prior experience with TypeScript or SQLLite, I opted to replace the S
 
 The concept of this project is to display (GET "/dogs") a list of lost dogs who have been found, and allow users to search through them or sort the list (with request query parameters), view more details about them (GET "/dog/:id"), or take them home (DELETE "/dog/:id)! If a dog needs to be added to the list, there is a form to submit a new dog to the list (POST "/dogs").
 
-## Instructions
+## Getting Started Instructions
 
 - In the [root] directory run `npm i` to install front and backend dependancies.
 - In the [/api/src/seeders] directory run `node seed.js`.
@@ -19,12 +19,8 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 - Subsituted MongoDB as the backend database.
 - Added AXIOS to take advantage of it's expanded abilities beyod javascript's fetch().
 - Added react-router-dom for its dynamic routing.
-- Styled with react-boostrap
-- Added Concurrently so I could start up the front and backend together...  Concurrently.
-
-## Getting started
-
-You will need to run both the UI and the API separately. They each have their own instructions as to how to get started.
+- Styled with react-boostrap, though not tested for responsivness.
+- Added Concurrently so I could start up the front and backend together... Concurrently.
 
 ## Submitting
 

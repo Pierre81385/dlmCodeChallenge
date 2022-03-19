@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
@@ -29,14 +29,7 @@ function Details() {
     color: "",
     breed: "",
   });
-  const [updateDog, setUpdateDog] = useState({
-    name: "",
-    gender: "",
-    age: "",
-    weight: "",
-    color: "",
-    breed: "",
-  });
+  const [updateDog, setUpdateDog] = useState({});
   const [errorFound, setErrorFound] = useState(false);
   const [editName, setEditName] = useState("none");
   const [editGender, setEditGender] = useState("none");
@@ -44,6 +37,7 @@ function Details() {
   const [editWeight, setEditWeight] = useState("none");
   const [editColor, setEditColor] = useState("none");
   const [editBreed, setEditBreed] = useState("none");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const doggyDetails = async () => {
@@ -64,12 +58,34 @@ function Details() {
     setUpdateDog({ ...updateDog, [event.target.name]: event.target.value });
   };
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const updateDogDetails = async () => {
+      const res = await fetch(`/dog/${useParam}`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateDog),
+      });
+      const data = await res.json();
+      console.log(data);
+    };
+    updateDogDetails();
+
+    setUpdateDog({});
+
+    navigate("/");
+  };
+
   return (
     <div id="main">
       {!errorFound ? (
         <>
           <Card style={style.formCard} className="text-center">
-            <form>
+            <form onSubmit={handleFormSubmit}>
               <div style={style.detail}>
                 <h3>{dog.name}</h3>
                 <BsPencilSquare
@@ -89,12 +105,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.name}
+                  placeholder="name"
                   name="name"
                   value={updateDog.name}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -131,12 +146,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.gender}
+                  placeholder="gender"
                   name="gender"
                   value={updateDog.gender}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -173,12 +187,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.age}
+                  placeholder="age"
                   name="age"
                   value={updateDog.age}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -215,12 +228,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.weight}
+                  placeholder="weight"
                   name="weight"
                   value={updateDog.weight}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -257,12 +269,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.color}
+                  placeholder="color"
                   name="color"
                   value={updateDog.color}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -299,12 +310,11 @@ function Details() {
                 }}
               >
                 <input
-                  placeholder={dog.breed}
+                  placeholder="breed"
                   name="breed"
                   value={updateDog.breed}
                   className="form-input col-12"
                   onChange={handleChange}
-                  required
                 ></input>
                 <Button
                   variant="outline-dark"
@@ -323,6 +333,9 @@ function Details() {
                   Cancel
                 </Button>
               </div>
+              <Button variant="outline-dark" type="submit">
+                Submit
+              </Button>
             </form>
           </Card>
         </>

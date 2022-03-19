@@ -74,6 +74,21 @@ app.post("/dogs", async (req, res) => {
   }
 });
 
+app.put("/dog/:id", async (req, res) => {
+  // update a single entity
+  const id = req.params.id;
+  try {
+    const data = await dogData.findByIdAndUpdate(
+      { _id: ObjectID(id) },
+      req.body,
+      { new: true }
+    );
+    res.status(201).json(data);
+  } catch (error) {
+    res.status(404).json(error);
+  }
+});
+
 app.delete("/dog/:id", async (req, res) => {
   // delete a single entity
   const id = req.params.id;

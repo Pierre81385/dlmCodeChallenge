@@ -186,6 +186,60 @@ function Home() {
                   Female
                 </Dropdown.Item>
               </DropdownButton>
+              <DropdownButton
+                id="dropdown-basic-button"
+                variant="outline-dark"
+                title="Sort by Size"
+                style={{ margin: "5px" }}
+              >
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("weight");
+                    setValue("big");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Large Dogs
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("weight");
+                    setValue("small");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Small Dogs
+                </Dropdown.Item>
+              </DropdownButton>
+              <DropdownButton
+                id="dropdown-basic-button"
+                variant="outline-dark"
+                title="Sort by Age"
+                style={{ margin: "5px" }}
+              >
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("age");
+                    setValue("younger");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Younger
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("age");
+                    setValue("older");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Older
+                </Dropdown.Item>
+              </DropdownButton>
             </div>
             <input
               placeholder="Search for your dog by name."
