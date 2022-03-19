@@ -51,8 +51,8 @@ Here is what we are looking for, and how your submission will be graded.
 
 ### Creating a new entity
 
-- [ ] On the list page, provide a way for the user to create a new entity.
-- [ ] After creating an entity, the user is taken to the home, list page, with an updated list reflecting the changes ( the created entity **is** in the list ).
+- [ ] On the list page, provide a way for the user to create a new entity. {{{ DONE }}}
+- [ ] After creating an entity, the user is taken to the home, list page, with an updated list reflecting the changes ( the created entity **is** in the list ). {{{ DONE }}}
 
 #### Bonus
 

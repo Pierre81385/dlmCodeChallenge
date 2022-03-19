@@ -7,6 +7,7 @@ function Details() {
   const [dog, setDog] = useState({
     id: useParam,
     name: "",
+    gender: "",
     age: "",
     weight: "",
     color: "",
@@ -34,6 +35,7 @@ function Details() {
       {!errorFound ? (
         <>
           <h3>{dog.name}</h3>
+          <h3>{dog.gender}</h3>
           <h3>{dog.age}</h3>
           <h3>{dog.weight}</h3>
           <h3>{dog.color}</h3>

@@ -14,12 +14,6 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//database connection to mongoose server
-app.use(cors(corsOptions));
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 
 // set port, listen for requests
@@ -65,6 +59,7 @@ app.post("/dogs", async (req, res) => {
   // create a single entity
   const newDog = new dogData({
     name: req.body.name,
+    gender: req.body.gender,
     age: req.body.age,
     weight: req.body.weight,
     color: req.body.color,

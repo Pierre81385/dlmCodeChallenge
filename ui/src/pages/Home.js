@@ -1,27 +1,46 @@
-// LIST FILTERS (optional)
-
-// SEARCH bar
-
-// NEW entity button (CREATE)
-//- [ ] A POST request to `/entity` creates a new entity
-
-// LIST of documents/entries (READ) {{{ DONE }}}
-
-// - EDIT button (UPDATE)
-//- [ ] A GET request to `/entity/:id` returns the given entity, or a 404 status code if that entity does not exist.
-
-// - DELETE button (DELETE) {{{ DONE }}}
-// - [ ] A DELETE request to `/entity/:id` deletes the given entity, or a 404 status code if that entity does not exist.
-// - [ ] A 200 status code, with a message of 'ok' or something similar is returned upon successful deletion.
-
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import { BsFillTrashFill } from "react-icons/bs";
 
 function Home() {
+  const style = {
+    ul: {
+      listStyleType: "none",
+      display: "inline-block",
+      padding: 0,
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+    listCard: {
+      width: "50vw",
+      display: "flex",
+      flexDirection: "row",
+      margin: "10px",
+    },
+    Button: {
+      minWidth: "20vw",
+      marginLeft: "5px",
+      marginRight: "auto",
+      marginTop: "5px",
+      marginBottom: "5px",
+    },
+    deleteButton: {
+      marginLeft: "auto",
+      marginRight: "5px",
+      marginTop: "5px",
+      marginBottom: "5px",
+    },
+  };
+
   //state declarations
   const [allDogs, setAllDogs] = useState([{}]);
   const [listChange, setListChange] = useState(false);
+  const [query, setQuery] = useState("");
+  var searchList = allDogs.filter((dog) => dog.name === query);
+  console.log(searchList);
+  const navigate = useNavigate();
 
   //request all dogs on render, run again if listChange state is true.
   useEffect(() => {
@@ -30,6 +49,8 @@ function Home() {
       try {
         const res = await fetch("/dogs");
         const data = await res.json();
+        //filter by name
+        //const data = jsonData.sort((a, b) => (a.name > b.name ? 1 : -1));
         setAllDogs([...data]);
         console.log("Found some dogs!");
       } catch (error) {
@@ -63,18 +84,36 @@ function Home() {
       }
     };
 
+    function ConfirmDelete() {
+      return window.confirm(`Do you want to take ${dog.name} home?`);
+    }
+
+    <input type="button" onclick="ConfirmDelete()"></input>;
+
     return (
       <li key={dog._id}>
-        <Link to={`/dog/${dog._id}`}>{dog.name}</Link>
+        <Card style={style.listCard}>
+          <Button
+            variant="outline-dark"
+            style={style.Button}
+            onClick={() => {
+              navigate(`/dog/${dog._id}`);
+            }}
+          >
+            {dog.name}
+          </Button>
 
-        <Button
-          onClick={() => {
-            deleteDog();
-            setListChange(false);
-          }}
-        >
-          Delete
-        </Button>
+          <BsFillTrashFill
+            style={style.deleteButton}
+            onClick={() => {
+              var result = ConfirmDelete();
+              if (result) {
+                deleteDog();
+                setListChange(false);
+              }
+            }}
+          />
+        </Card>
       </li>
     );
   };
@@ -83,15 +122,46 @@ function Home() {
     <div>
       {allDogs.length === 0 ? (
         <>
-          <h1>No dogs!</h1>
-          <Link to={"/new"}>Add a Dog</Link>
+          <h1>No Dogs Found!</h1>
+          <Button
+            variant="outline-dark"
+            onClick={() => {
+              navigate("/new");
+            }}
+          >
+            Add a Dog
+          </Button>
         </>
       ) : (
         <>
-          <Link to={"/new"}>Add a Dog</Link>
-
-          <div>Meet the dogs:</div>
-          <ul>{allDogs.map(renderDogList)}</ul>
+          <div>
+            <Button
+              variant="outline-dark"
+              onClick={() => {
+                navigate("/new");
+              }}
+            >
+              Add a Dog
+            </Button>
+            <h1>Dogs Found</h1>
+            <input
+              placeholder="Search for your dog by name."
+              style={{
+                width: "50vw",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                console.log(query);
+              }}
+            />
+          </div>
+          {searchList.length > 0 ? (
+            <ul style={style.ul}>{searchList.map(renderDogList)}</ul>
+          ) : (
+            <ul style={style.ul}>{allDogs.map(renderDogList)}</ul>
+          )}
         </>
       )}
     </div>

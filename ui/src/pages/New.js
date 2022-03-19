@@ -1,10 +1,33 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { Card } from "react-bootstrap";
 
 function New() {
+  const style = {
+    formCard: {
+      width: "50vw",
+      padding: "5px",
+      marginTop: "5px",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+    input: {
+      marginTop: "5px",
+      marginBottom: "2.5px",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+    Button: {
+      marginLeft: "5px",
+      marginRight: "5px",
+      marginTop: "5px",
+      marginBottom: "5px",
+    },
+  };
   const [newDog, setNewDog] = useState({
     name: "",
+    gender: "",
     age: "",
     weight: "",
     color: "",
@@ -45,47 +68,73 @@ function New() {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
-        placeholder="name"
-        name="name"
-        value={newDog.name}
-        className="form-input"
-        onChange={handleChange}
-      ></input>
-      <input
-        placeholder="age"
-        name="age"
-        value={newDog.age}
-        className="form-input"
-        onChange={handleChange}
-      ></input>
-      <input
-        placeholder="weight"
-        name="weight"
-        value={newDog.weight}
-        className="form-input"
-        onChange={handleChange}
-      ></input>
-      <input
-        placeholder="color"
-        name="color"
-        value={newDog.color}
-        className="form-input"
-        onChange={handleChange}
-      ></input>
-      <input
-        placeholder="breed"
-        name="breed"
-        value={newDog.breed}
-        className="form-input"
-        onChange={handleChange}
-      ></input>
-      <Button type="submit">Submit</Button>
-      <Link className="btn" to={`/`}>
-        Cancel
-      </Link>
-    </form>
+    <Card style={style.formCard} className="text-center">
+      <form onSubmit={handleFormSubmit}>
+        <input
+          placeholder="name"
+          name="name"
+          value={newDog.name}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+          required
+        ></input>
+        <input
+          placeholder="gender"
+          name="gender"
+          value={newDog.gender}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+          required
+        ></input>
+        <input
+          placeholder="age"
+          name="age"
+          value={newDog.age}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+        ></input>
+        <input
+          placeholder="weight"
+          name="weight"
+          value={newDog.weight}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+        ></input>
+        <input
+          placeholder="color"
+          name="color"
+          value={newDog.color}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+        ></input>
+        <input
+          placeholder="breed"
+          name="breed"
+          value={newDog.breed}
+          className="form-input col-12"
+          style={style.input}
+          onChange={handleChange}
+        ></input>
+        <Button variant="outline-dark" style={style.Button} type="submit">
+          Submit
+        </Button>
+        <Button
+          variant="outline-dark"
+          className="btn"
+          style={style.Button}
+          onClick={() => {
+            navigate(`/`);
+          }}
+        >
+          Cancel
+        </Button>
+      </form>
+    </Card>
   );
 }
 

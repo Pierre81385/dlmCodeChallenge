@@ -3,8 +3,14 @@ const mongoose = require("mongoose");
 const dogSchema = mongoose.Schema({
   name: {
     type: String,
+    validate: /[a-z]/,
     required: true,
     unique: true,
+  },
+  gender: {
+    type: String,
+    enum: ["male", "female"],
+    required: true,
   },
   age: {
     type: Number,
@@ -16,10 +22,12 @@ const dogSchema = mongoose.Schema({
   },
   color: {
     type: String,
+    validate: /[a-z]/,
     required: true,
   },
   breed: {
     type: String,
+    validate: /[a-z]/,
     required: true,
   },
 });

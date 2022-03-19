@@ -2,12 +2,14 @@
   {
     "name": "Franklin",
     "age": 15,
+    "gender": "male",
     "weight": 30,
     "color": "salt and pepper",
     "breed": "westie/corgi"
   },
   {
     "name": "Snoopy",
+    "gender": "male",
     "age": 100,
     "weight": 50,
     "color": "black and white",
@@ -15,6 +17,7 @@
   },
   {
     "name": "Oliver",
+    "gender": "male",
     "age": 1,
     "weight": 65,
     "color": "tan",
@@ -22,6 +25,7 @@
   },
   {
     "name": "Kala",
+    "gender": "female",
     "age": 3,
     "weight": 40,
     "color": "brown and white",
@@ -29,6 +33,7 @@
   },
   {
     "name": "LambChop",
+    "gender": "male",
     "age": 20,
     "weight": 6,
     "color": "white",
@@ -36,9 +41,42 @@
   },
   {
     "name": "Timmy",
+    "gender": "male",
     "age": 150,
     "weight": 5,
     "color": "green",
     "breed": "turtle"
+  },
+  {
+    "name": "Skippy",
+    "gender": "male",
+    "age": 1,
+    "weight": 10,
+    "color": "black",
+    "breed": "terrier"
+  },
+  {
+    "name": "Jelly",
+    "gender": "female",
+    "age": 10,
+    "weight": 80,
+    "color": "grey",
+    "breed": "pug"
+  },
+  {
+    "name": "David",
+    "gender": "male",
+    "age": 3,
+    "weight": 15,
+    "color": "Orange",
+    "breed": "pompom"
+  },
+  {
+    "name": "Betty White",
+    "gender": "female",
+    "age": 9,
+    "weight": 76,
+    "color": "gold",
+    "breed": "golden retriever"
   }
 ]
