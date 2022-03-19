@@ -46,9 +46,10 @@ app.get("/ping", (_, res) => {
 });
 
 app.get("/dogs", async (req, res) => {
+  console.log(req.query);
   // fetch many entities
   try {
-    const allDogs = await dogData.find();
+    const allDogs = await dogData.find(req.query);
     res.status(200).json(allDogs);
   } catch (error) {
     res.status(404).json(error);

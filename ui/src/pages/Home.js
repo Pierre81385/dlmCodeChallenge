@@ -3,6 +3,10 @@ import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { BsFillTrashFill } from "react-icons/bs";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
+import axios from "axios";
 
 function Home() {
   const style = {
@@ -38,20 +42,21 @@ function Home() {
   const [allDogs, setAllDogs] = useState([{}]);
   const [listChange, setListChange] = useState(false);
   const [query, setQuery] = useState("");
+  const [key, setKey] = useState("");
+  const [value, setValue] = useState("");
   var searchList = allDogs.filter((dog) => dog.name === query);
-  console.log(searchList);
   const navigate = useNavigate();
 
   //request all dogs on render, run again if listChange state is true.
   useEffect(() => {
+    const params = new URLSearchParams([[key, value]]);
+
     console.log("Looking for dogs.");
     const fetchDogs = async () => {
       try {
-        const res = await fetch("/dogs");
-        const data = await res.json();
-        //filter by name
-        //const data = jsonData.sort((a, b) => (a.name > b.name ? 1 : -1));
-        setAllDogs([...data]);
+        const res = await axios.get("/dogs", { params });
+        setAllDogs([...res.data]);
+
         console.log("Found some dogs!");
       } catch (error) {
         console.log(error);
@@ -156,6 +161,34 @@ function Home() {
                 console.log(query);
               }}
             />
+            <div>
+              <DropdownButton
+                id="dropdown-basic-button"
+                variant="dark"
+                title="Sort by Gender"
+              >
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("gender");
+                    setValue("male");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Male
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("gender");
+                    setValue("female");
+                    setListChange(true);
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Female
+                </Dropdown.Item>
+              </DropdownButton>
+            </div>
           </div>
           {searchList.length > 0 ? (
             <ul style={style.ul}>{searchList.map(renderDogList)}</ul>
