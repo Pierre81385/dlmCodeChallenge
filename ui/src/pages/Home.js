@@ -129,6 +129,7 @@ function Home() {
         <>
           <h1>No Dogs Found!</h1>
           <Button
+            style={{ margin: "5px" }}
             variant="outline-dark"
             onClick={() => {
               navigate("/new");
@@ -140,32 +141,29 @@ function Home() {
       ) : (
         <>
           <div>
-            <Button
-              variant="outline-dark"
-              onClick={() => {
-                navigate("/new");
+            <h1>Dogs Found</h1>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
               }}
             >
-              Add a Dog
-            </Button>
-            <h1>Dogs Found</h1>
-            <input
-              placeholder="Search for your dog by name."
-              style={{
-                width: "50vw",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-              onChange={(event) => {
-                setQuery(event.target.value);
-                console.log(query);
-              }}
-            />
-            <div>
+              <Button
+                variant="outline-dark"
+                style={{ margin: "5px" }}
+                onClick={() => {
+                  navigate("/new");
+                }}
+              >
+                Add a Dog
+              </Button>
               <DropdownButton
                 id="dropdown-basic-button"
-                variant="dark"
+                variant="outline-dark"
                 title="Sort by Gender"
+                style={{ margin: "5px" }}
               >
                 <Dropdown.Item
                   onClick={() => {
@@ -189,6 +187,20 @@ function Home() {
                 </Dropdown.Item>
               </DropdownButton>
             </div>
+            <input
+              placeholder="Search for your dog by name."
+              style={{
+                width: "50vw",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginTop: "5px",
+                marginBottom: "5px",
+              }}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                console.log(query);
+              }}
+            />
           </div>
           {searchList.length > 0 ? (
             <ul style={style.ul}>{searchList.map(renderDogList)}</ul>
