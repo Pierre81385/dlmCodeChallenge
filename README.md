@@ -22,8 +22,7 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 - Styled with react-boostrap, though not tested for responsivness.
 - Added Concurrently so I could start up the front and backend together... Concurrently.
 
-## Submitting
+## Feature List
 
-When you are ready to submit, either send us a link to the repository you have pushed your code to, or email us a zip file. Whatever is easier for you.
-
-We have provided a way to quickly zip your submission, simply run `npm run zip` from the `zip/` directory to spit out a zipped submission.
+- Create, Read (all and one document), Update (all or one attribute), and Delete on the doggy_db database through frontend UI.
+- 

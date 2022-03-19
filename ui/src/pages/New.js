@@ -120,7 +120,9 @@ function New() {
           style={style.input}
           onChange={handleChange}
         ></input>
-
+        <Button variant="outline-dark" style={style.Button} type="submit">
+          Submit
+        </Button>
         <Button
           variant="outline-dark"
           className="btn"

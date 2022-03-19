@@ -42,9 +42,11 @@ function Home() {
   const [allDogs, setAllDogs] = useState([{}]);
   const [listChange, setListChange] = useState(false);
   const [query, setQuery] = useState("");
+  var searchList = allDogs.filter((dog) => dog.name === query);
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
-  var searchList = allDogs.filter((dog) => dog.name === query);
+  const [displayList, setDisplayList] = useState("inline");
+  const [clearFilter, setClearFilter] = useState("none");
   const navigate = useNavigate();
 
   //request all dogs on render, run again if listChange state is true.
@@ -64,6 +66,7 @@ function Home() {
     };
 
     fetchDogs();
+    setListChange(false);
 
     //listChange initilized as false, changes to true if deleteDog sucessfully deletes a dog
     if (listChange) {
@@ -163,13 +166,15 @@ function Home() {
                 id="dropdown-basic-button"
                 variant="outline-dark"
                 title="Sort by Gender"
-                style={{ margin: "5px" }}
+                style={{ margin: "5px", display: `${displayList}` }}
               >
                 <Dropdown.Item
                   onClick={() => {
                     setKey("gender");
                     setValue("male");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
@@ -180,6 +185,8 @@ function Home() {
                     setKey("gender");
                     setValue("female");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
@@ -190,13 +197,15 @@ function Home() {
                 id="dropdown-basic-button"
                 variant="outline-dark"
                 title="Sort by Size"
-                style={{ margin: "5px" }}
+                style={{ margin: "5px", display: `${displayList}` }}
               >
                 <Dropdown.Item
                   onClick={() => {
                     setKey("weight");
                     setValue("big");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
@@ -207,6 +216,8 @@ function Home() {
                     setKey("weight");
                     setValue("small");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
@@ -217,13 +228,15 @@ function Home() {
                 id="dropdown-basic-button"
                 variant="outline-dark"
                 title="Sort by Age"
-                style={{ margin: "5px" }}
+                style={{ margin: "5px", display: `${displayList}` }}
               >
                 <Dropdown.Item
                   onClick={() => {
                     setKey("age");
                     setValue("younger");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
@@ -234,12 +247,27 @@ function Home() {
                     setKey("age");
                     setValue("older");
                     setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
                   Older
                 </Dropdown.Item>
               </DropdownButton>
+              <Button
+                style={{ display: `${clearFilter}` }}
+                onClick={() => {
+                  console.log("list change onClick is " + listChange);
+                  setKey("");
+                  setQuery("");
+                  setListChange(true);
+                  setDisplayList("inline");
+                  setClearFilter("none");
+                }}
+              >
+                Clear Filter
+              </Button>
             </div>
             <input
               placeholder="Search for your dog by name."

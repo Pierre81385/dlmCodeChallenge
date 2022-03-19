@@ -37,6 +37,7 @@ function Details() {
   const [editWeight, setEditWeight] = useState("none");
   const [editColor, setEditColor] = useState("none");
   const [editBreed, setEditBreed] = useState("none");
+  const [submitButtonDisplay, setSubmitButtonDisplay] = useState("none");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,6 +57,7 @@ function Details() {
 
   const handleChange = (event) => {
     setUpdateDog({ ...updateDog, [event.target.name]: event.target.value });
+    setSubmitButtonDisplay("inline");
   };
 
   const handleFormSubmit = (event) => {
@@ -117,7 +119,7 @@ function Details() {
                     setEditName("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -158,7 +160,7 @@ function Details() {
                     setEditGender("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -199,7 +201,7 @@ function Details() {
                     setEditAge("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -240,7 +242,7 @@ function Details() {
                     setEditWeight("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -281,7 +283,7 @@ function Details() {
                     setEditColor("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -322,7 +324,7 @@ function Details() {
                     setEditBreed("none");
                   }}
                 >
-                  Update
+                  Done
                 </Button>
                 <Button
                   variant="outline-dark"
@@ -333,8 +335,12 @@ function Details() {
                   Cancel
                 </Button>
               </div>
-              <Button variant="outline-dark" type="submit">
-                Submit
+              <Button
+                variant="outline-dark"
+                style={{ display: `${submitButtonDisplay}` }}
+                type="submit"
+              >
+                Submit Updates
               </Button>
             </form>
           </Card>
