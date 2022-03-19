@@ -25,7 +25,7 @@ function Details() {
     name: "",
     gender: "",
     age: "",
-    weight: "",
+    size: "",
     color: "",
     breed: "",
   });
@@ -34,7 +34,7 @@ function Details() {
   const [editName, setEditName] = useState("none");
   const [editGender, setEditGender] = useState("none");
   const [editAge, setEditAge] = useState("none");
-  const [editWeight, setEditWeight] = useState("none");
+  const [editsize, setEditsize] = useState("none");
   const [editColor, setEditColor] = useState("none");
   const [editBreed, setEditBreed] = useState("none");
   const [submitButtonDisplay, setSubmitButtonDisplay] = useState("none");
@@ -213,10 +213,10 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.weight}</h3>
+                <h3>{dog.size}</h3>
                 <BsPencilSquare
                   onClick={() => {
-                    setEditWeight("inline");
+                    setEditsize("inline");
                   }}
                 />
               </div>
@@ -226,20 +226,20 @@ function Details() {
                   marginBottom: "2.5px",
                   marginLeft: "auto",
                   marginRight: "auto",
-                  display: `${editWeight}`,
+                  display: `${editsize}`,
                 }}
               >
                 <input
-                  placeholder="weight"
-                  name="weight"
-                  value={updateDog.weight}
+                  placeholder="size"
+                  name="size"
+                  value={updateDog.size}
                   className="form-input col-12"
                   onChange={handleChange}
                 ></input>
                 <Button
                   variant="outline-dark"
                   onClick={() => {
-                    setEditWeight("none");
+                    setEditsize("none");
                   }}
                 >
                   Done
@@ -247,7 +247,7 @@ function Details() {
                 <Button
                   variant="outline-dark"
                   onClick={() => {
-                    setEditWeight("none");
+                    setEditsize("none");
                   }}
                 >
                   Cancel

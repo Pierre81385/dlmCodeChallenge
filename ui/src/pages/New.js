@@ -29,7 +29,7 @@ function New() {
     name: "",
     gender: "",
     age: "",
-    weight: "",
+    size: "",
     color: "",
     breed: "",
   });
@@ -59,7 +59,7 @@ function New() {
     setNewDog({
       name: "",
       age: "",
-      weight: "",
+      size: "",
       color: "",
       breed: "",
     });
@@ -80,7 +80,7 @@ function New() {
           required
         ></input>
         <input
-          placeholder="gender"
+          placeholder="gender (male or female)"
           name="gender"
           value={newDog.gender}
           className="form-input col-12"
@@ -89,7 +89,7 @@ function New() {
           required
         ></input>
         <input
-          placeholder="age"
+          placeholder="age (puppy, adult, or senior)"
           name="age"
           value={newDog.age}
           className="form-input col-12"
@@ -97,9 +97,9 @@ function New() {
           onChange={handleChange}
         ></input>
         <input
-          placeholder="weight"
-          name="weight"
-          value={newDog.weight}
+          placeholder="size (small, medium, or large)"
+          name="size"
+          value={newDog.size}
           className="form-input col-12"
           style={style.input}
           onChange={handleChange}

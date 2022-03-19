@@ -13,11 +13,13 @@ const dogSchema = mongoose.Schema({
     required: true,
   },
   age: {
-    type: Number,
+    type: String,
+    enum: ["puppy", "adult", "senior"],
     required: true,
   },
-  weight: {
-    type: Number,
+  size: {
+    type: String,
+    enum: ["small", "medium", "large"],
     required: true,
   },
   color: {

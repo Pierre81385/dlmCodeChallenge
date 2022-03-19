@@ -144,7 +144,8 @@ function Home() {
       ) : (
         <>
           <div>
-            <h1>Dogs Found</h1>
+            <h1>The Dog Found</h1>
+            <h4>Lost your dog? Check the list to see dogs we've rescued.</h4>
 
             <div
               style={{
@@ -201,19 +202,7 @@ function Home() {
               >
                 <Dropdown.Item
                   onClick={() => {
-                    setKey("weight");
-                    setValue("big");
-                    setListChange(true);
-                    setDisplayList("none");
-                    setClearFilter("inline");
-                    console.log(`sort by ${key} and ${value}`);
-                  }}
-                >
-                  Large Dogs
-                </Dropdown.Item>
-                <Dropdown.Item
-                  onClick={() => {
-                    setKey("weight");
+                    setKey("size");
                     setValue("small");
                     setListChange(true);
                     setDisplayList("none");
@@ -222,6 +211,30 @@ function Home() {
                   }}
                 >
                   Small Dogs
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("size");
+                    setValue("medium");
+                    setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Medium Dogs
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("size");
+                    setValue("large");
+                    setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Large Dogs
                 </Dropdown.Item>
               </DropdownButton>
               <DropdownButton
@@ -233,26 +246,38 @@ function Home() {
                 <Dropdown.Item
                   onClick={() => {
                     setKey("age");
-                    setValue("younger");
+                    setValue("puppy");
                     setListChange(true);
                     setDisplayList("none");
                     setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
-                  Younger
+                  Puppy
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => {
                     setKey("age");
-                    setValue("older");
+                    setValue("adult");
                     setListChange(true);
                     setDisplayList("none");
                     setClearFilter("inline");
                     console.log(`sort by ${key} and ${value}`);
                   }}
                 >
-                  Older
+                  Adult
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    setKey("age");
+                    setValue("senior");
+                    setListChange(true);
+                    setDisplayList("none");
+                    setClearFilter("inline");
+                    console.log(`sort by ${key} and ${value}`);
+                  }}
+                >
+                  Senior
                 </Dropdown.Item>
               </DropdownButton>
               <Button
