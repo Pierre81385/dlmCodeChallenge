@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Card } from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 function New() {
   const style = {
@@ -79,31 +81,60 @@ function New() {
           onChange={handleChange}
           required
         ></input>
-        <input
-          placeholder="gender (male or female)"
-          name="gender"
-          value={newDog.gender}
-          className="form-input col-12"
-          style={style.input}
-          onChange={handleChange}
+        <select
+          id="genderSelect"
+          className="form-control"
+          onChange={() => {
+            setNewDog({
+              ...newDog,
+              gender: document.getElementById("genderSelect").value,
+            });
+          }}
           required
-        ></input>
-        <input
-          placeholder="age (puppy, adult, or senior)"
-          name="age"
-          value={newDog.age}
-          className="form-input col-12"
-          style={style.input}
-          onChange={handleChange}
-        ></input>
-        <input
-          placeholder="size (small, medium, or large)"
-          name="size"
-          value={newDog.size}
-          className="form-input col-12"
-          style={style.input}
-          onChange={handleChange}
-        ></input>
+        >
+          <option value="" selected disabled>
+            Select Gender
+          </option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select
+          id="ageSelect"
+          className="form-control"
+          onChange={() => {
+            setNewDog({
+              ...newDog,
+              age: document.getElementById("ageSelect").value,
+            });
+          }}
+          required
+        >
+          <option value="" selected disabled>
+            Select Age
+          </option>
+          <option value="puppy">Puppy</option>
+          <option value="adult">Adult</option>
+          <option value="senior">Senior</option>
+        </select>
+        <select
+          id="sizeSelect"
+          className="form-control"
+          onChange={() => {
+            setNewDog({
+              ...newDog,
+              size: document.getElementById("sizeSelect").value,
+            });
+          }}
+          required
+        >
+          <option value="" selected disabled>
+            Select Size
+          </option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Senior</option>
+        </select>
+
         <input
           placeholder="color"
           name="color"
@@ -111,6 +142,7 @@ function New() {
           className="form-input col-12"
           style={style.input}
           onChange={handleChange}
+          required
         ></input>
         <input
           placeholder="breed"
@@ -119,6 +151,7 @@ function New() {
           className="form-input col-12"
           style={style.input}
           onChange={handleChange}
+          required
         ></input>
         <Button variant="outline-dark" style={style.Button} type="submit">
           Submit

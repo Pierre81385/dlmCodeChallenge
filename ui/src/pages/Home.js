@@ -281,6 +281,7 @@ function Home() {
                 </Dropdown.Item>
               </DropdownButton>
               <Button
+                variant="dark"
                 style={{ display: `${clearFilter}` }}
                 onClick={() => {
                   console.log("list change onClick is " + listChange);

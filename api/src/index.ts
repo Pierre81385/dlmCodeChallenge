@@ -62,7 +62,7 @@ app.post("/dogs", async (req, res) => {
     name: req.body.name,
     gender: req.body.gender,
     age: req.body.age,
-    weight: req.body.weight,
+    size: req.body.size,
     color: req.body.color,
     breed: req.body.breed,
   });
