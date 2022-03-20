@@ -39,10 +39,14 @@ function Home() {
   };
 
   //state declarations
-  const [allDogs, setAllDogs] = useState([{}]);
+  const [allDogs, setAllDogs] = useState([
+    { name: "", gender: "", age: "", size: "", color: "", breed: "" },
+  ]);
   const [listChange, setListChange] = useState(false);
   const [query, setQuery] = useState("");
-  var searchList = allDogs.filter((dog) => dog.name === query);
+  var searchList = allDogs.filter(
+    (dog) => dog.name.toLocaleLowerCase() === query.toLocaleLowerCase()
+  );
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
   const [displayList, setDisplayList] = useState("inline");
