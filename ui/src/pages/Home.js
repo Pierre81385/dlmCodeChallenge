@@ -380,6 +380,7 @@ function Home() {
                   setPageSize(3);
                   setPageButtons([]);
                   setListChange(true);
+                  setCurrentPage(1);
                 }}
               >
                 3
@@ -389,6 +390,7 @@ function Home() {
                   setPageSize(10);
                   setPageButtons([]);
                   setListChange(true);
+                  setCurrentPage(1);
                 }}
               >
                 10 (default)
@@ -398,6 +400,7 @@ function Home() {
                   setPageSize(allDogs.length);
                   setPageButtons([]);
                   setListChange(true);
+                  setCurrentPage(1);
                 }}
               >
                 ALL
