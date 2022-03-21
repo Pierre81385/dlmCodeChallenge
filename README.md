@@ -14,6 +14,22 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 
 - Find a dog. Take'm home.
 
+## Dependancies
+
+- "body-parser": "^1.19.2",
+- "cors": "^2.8.5",
+- "express": "^4.17.3",
+- "mongoose": "^6.2.7"
+- "@types/react-router-dom": "^5.3.3",
+- "axios": "^0.26.1",
+- "bootstrap": "^5.1.3",
+- "react": "^17.0.2",
+- "react-bootstrap": "^2.2.1",
+- "react-dom": "^17.0.2",
+- "react-icons": "^4.3.1",
+- "react-query": "^3.34.16",
+- "react-router-dom": "^6.2.2"
+
 ## Additions and Subsitutions
 
 - Subsituted MongoDB as the backend database.
