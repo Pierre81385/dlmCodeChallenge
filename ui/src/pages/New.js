@@ -132,7 +132,7 @@ function New() {
           </option>
           <option value="small">Small</option>
           <option value="medium">Medium</option>
-          <option value="large">Senior</option>
+          <option value="large">Large</option>
         </select>
 
         <input

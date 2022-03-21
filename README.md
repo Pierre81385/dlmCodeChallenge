@@ -2,8 +2,6 @@
 
 This is my submission for the DML Coding Challenge. Given a TypeScript REACT app with a SQLite database, my challenge was to adapt this framework into an app with core functionality to send CREATE, READ, and DELETE requests to a database and present the results to the user.
 
-Not having prior experience with TypeScript or SQLLite, I opted to replace the SQLite database with MongoDB and build the project with javascript.
-
 The concept of this project is to display (GET "/dogs") a list of lost dogs who have been found, and allow users to search through them or sort the list (with request query parameters), view more details about them (GET "/dog/:id"), or take them home (DELETE "/dog/:id)! If a dog needs to be added to the list, there is a form to submit a new dog to the list (POST "/dogs").
 
 ## Getting Started Instructions
@@ -12,7 +10,7 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 - In the [/api/src/seeders] directory run `node seed.js`.
 - In the [root] directory run `npm run develop` to start the server and launch the react app.
 
-- Find a dog and take'm home.
+- Find a dog. Take'm home.
 
 ## Additions and Subsitutions
 
@@ -25,4 +23,6 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 ## Feature List
 
 - Create, Read (all and one document), Update (all or one attribute), and Delete on the doggy_db database through frontend UI.
-- 
+- Search for dogs by name.
+- Sort list of dogs by gender, age, size.
+- New dog form has frontend validation, and backend validation.

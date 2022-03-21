@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -5,8 +6,6 @@ import { Card } from "react-bootstrap";
 import { BsFillTrashFill } from "react-icons/bs";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-
-import axios from "axios";
 
 function Home() {
   const style = {
@@ -51,7 +50,17 @@ function Home() {
   const [value, setValue] = useState("");
   const [displayList, setDisplayList] = useState("inline");
   const [clearFilter, setClearFilter] = useState("none");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const numberOfButtons = allDogs.length / pageSize;
+  console.log(Math.round(numberOfButtons));
+  const [pageButtons, setPageButtons] = useState([]);
+  const [changeButtons, setChangeButtons] = useState(false);
   const navigate = useNavigate();
+
+  const allDogsPaged = (array, pageSize, pageNumber) => {
+    return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+  };
 
   //request all dogs on render, run again if listChange state is true.
   useEffect(() => {
@@ -75,6 +84,29 @@ function Home() {
     //listChange initilized as false, changes to true if deleteDog sucessfully deletes a dog
     if (listChange) {
       fetchDogs();
+    }
+  }, [listChange]);
+
+  useEffect(() => {
+    console.log("number of buttons: " + numberOfButtons);
+    console.log("page buttons: " + pageButtons.length);
+    const getButtons = () => {
+      if (pageButtons.length < numberOfButtons)
+        for (var i = 0; i < numberOfButtons + 1; i++) {
+          if (i === 0) {
+            console.log("waiting for buttons");
+          } else if (pageButtons.includes(i)) {
+            console.log("still waiting for buttons");
+          } else {
+            pageButtons.push(i);
+            console.log(pageButtons);
+          }
+        }
+    };
+    getButtons();
+
+    if (listChange) {
+      getButtons();
     }
   }, [listChange]);
 
@@ -129,6 +161,22 @@ function Home() {
       </li>
     );
   };
+
+  ///////////////////////////////////////////////////////
+  const renderPageButtons = (number) => {
+    console.log("rendered: " + pageButtons);
+    return (
+      <Dropdown.Item
+        onClick={() => {
+          setCurrentPage(number);
+          setListChange(true);
+        }}
+      >
+        ${number}
+      </Dropdown.Item>
+    );
+  };
+  //////////////////////////////////////////////////////////////
 
   return (
     <div>
@@ -314,10 +362,62 @@ function Home() {
               }}
             />
           </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            }}
+          >
+            <DropdownButton
+              id="dropdown-basic-button"
+              variant="outline-dark"
+              title="Number of Results"
+              style={{ margin: "5px" }}
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  setPageSize(3);
+                  setPageButtons([]);
+                  setListChange(true);
+                }}
+              >
+                3
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  setPageSize(10);
+                  setPageButtons([]);
+                  setListChange(true);
+                }}
+              >
+                10 (default)
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  setPageSize(allDogs.length);
+                  setPageButtons([]);
+                  setListChange(true);
+                }}
+              >
+                ALL
+              </Dropdown.Item>
+            </DropdownButton>
+            <DropdownButton
+              id="dropdown-basic-button"
+              variant="outline-dark"
+              title="Select Page"
+              style={{ margin: "5px" }}
+            >
+              {pageButtons.map(renderPageButtons)}
+            </DropdownButton>
+          </div>
           {searchList.length > 0 ? (
             <ul style={style.ul}>{searchList.map(renderDogList)}</ul>
           ) : (
-            <ul style={style.ul}>{allDogs.map(renderDogList)}</ul>
+            <ul style={style.ul}>
+              {allDogsPaged(allDogs, pageSize, currentPage).map(renderDogList)}
+            </ul>
           )}
         </>
       )}

@@ -18,6 +18,9 @@ function Details() {
       marginLeft: "auto",
       marginRight: "auto",
     },
+    img: {
+      width: "20vw",
+    },
   };
   const { id: useParam } = useParams();
   const [dog, setDog] = useState({
@@ -343,6 +346,13 @@ function Details() {
                 Submit Updates
               </Button>
             </form>
+            <div>
+              <img
+                style={style.img}
+                src="https://www.pikpng.com/pngl/m/4-44135_dog-paw-prints-cat-paw-print-clipart-cat.png"
+                alt="Dog Paw Prints Cat Paw Print Clipart - Cat Paw Print Transparent - Png Download@pikpng.com"
+              />
+            </div>
           </Card>
         </>
       ) : (
