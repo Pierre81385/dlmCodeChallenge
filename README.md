@@ -4,6 +4,8 @@ This is my submission for the DML Coding Challenge. Given a TypeScript REACT app
 
 The concept of this project is to display (GET "/dogs") a list of lost dogs who have been found, and allow users to search through them or sort the list (with request query parameters), view more details about them (GET "/dog/:id"), or take them home (DELETE "/dog/:id)! If a dog needs to be added to the list, there is a form to submit a new dog to the list (POST "/dogs").
 
+![Alt Text](ui/src/assets/demo.gif)
+
 ## Getting Started Instructions
 
 - In the [root] directory run `npm i` to install front and backend dependancies.
@@ -23,6 +25,7 @@ The concept of this project is to display (GET "/dogs") a list of lost dogs who 
 ## Feature List
 
 - Create, Read (all and one document), Update (all or one attribute), and Delete on the doggy_db database through frontend UI.
-- Search for dogs by name.
+- Search for dogs by name (not case sensative)
 - Sort list of dogs by gender, age, size.
+- Limit page size to 3 or 10 dogs at a time, page numbers dynamically change.
 - New dog form has frontend validation, and backend validation.
