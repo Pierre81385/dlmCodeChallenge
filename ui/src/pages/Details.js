@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import Button from "react-bootstrap/Button";
 import { Card } from "react-bootstrap";
+import dogImg from "../assets/dog-1.png";
 
 function Details() {
   const style = {
@@ -12,14 +13,19 @@ function Details() {
       flexDirection: "row",
     },
     formCard: {
-      width: "50vw",
+      width: "30vw",
       padding: "5px",
       marginTop: "5px",
       marginLeft: "auto",
       marginRight: "auto",
+      display: "flex",
+      flexDirection: "row",
     },
     img: {
-      width: "20vw",
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "5px",
+      height: "250px",
     },
   };
   const { id: useParam } = useParams();
@@ -92,7 +98,7 @@ function Details() {
           <Card style={style.formCard} className="text-center">
             <form onSubmit={handleFormSubmit}>
               <div style={style.detail}>
-                <h3>{dog.name}</h3>
+                <h3>Name: {dog.name}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditName("inline");
@@ -134,7 +140,7 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.gender}</h3>
+                <h3>Gender: {dog.gender}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditGender("inline");
@@ -175,7 +181,7 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.age}</h3>
+                <h3>Age: {dog.age}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditAge("inline");
@@ -216,7 +222,7 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.size}</h3>
+                <h3>Size: {dog.size}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditsize("inline");
@@ -257,7 +263,7 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.color}</h3>
+                <h3>Color: {dog.color}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditColor("inline");
@@ -298,7 +304,7 @@ function Details() {
                 </Button>
               </div>
               <div style={style.detail}>
-                <h3>{dog.breed}</h3>
+                <h3>Breed: {dog.breed}</h3>
                 <BsPencilSquare
                   onClick={() => {
                     setEditBreed("inline");
@@ -346,12 +352,8 @@ function Details() {
                 Submit Updates
               </Button>
             </form>
-            <div>
-              <img
-                style={style.img}
-                src="https://www.pikpng.com/pngl/m/4-44135_dog-paw-prints-cat-paw-print-clipart-cat.png"
-                alt="Dog Paw Prints Cat Paw Print Clipart - Cat Paw Print Transparent - Png Download@pikpng.com"
-              />
+            <div style={style.img}>
+              <img style={style.img} src={dogImg} alt="Dog Cartoon" />
             </div>
           </Card>
         </>
